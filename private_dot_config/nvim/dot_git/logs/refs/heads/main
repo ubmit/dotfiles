@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000 d849b95abfbc822670cdec49c1d8d4777222f1ca Guilherme de Andrade <guilhermedeandrade@protonmail.com> 1710256584 +0000	clone: from github.com:ubmit/nvim.git
+d849b95abfbc822670cdec49c1d8d4777222f1ca 08468c1a20be45a9260d31f1620c0e085783960f Guilherme de Andrade <guilhermedeandrade@protonmail.com> 1710256646 +0000	commit: fix: fix formatting and LazyExtras/LazyHealth
+08468c1a20be45a9260d31f1620c0e085783960f a6a69e49868451016fff23bca1cbd90ec11a087a Guilherme de Andrade <guilhermedeandrade@protonmail.com> 1710256849 +0000	commit: chore: use simpler obj syntax
+a6a69e49868451016fff23bca1cbd90ec11a087a ec696042c74197ee3f4b92cf1c9a2c2052d58048 Guilherme de Andrade <guilhermedeandrade@protonmail.com> 1710257519 +0000	commit: feat: add catppuccin theme
+ec696042c74197ee3f4b92cf1c9a2c2052d58048 d1cdaf76773000db446582cfa7bec493107410a0 Guilherme de Andrade <gui@ubmit.dev> 1710260790 +0000	commit: feat: use shfmt as the formatter for zsh filetype
+d1cdaf76773000db446582cfa7bec493107410a0 12e40366a10953fb60a57614b03ee4c642b68461 Guilherme de Andrade <gui@ubmit.dev> 1712066468 +0100	pull origin main: Fast-forward

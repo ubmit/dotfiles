@@ -1,0 +1,25 @@
+[user]
+	name = Guilherme de Andrade
+	email = gui@ubmit.dev
+[core]
+  editor = vim
+  pager = delta --features "$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)"
+[delta "light-mode"]
+  light = true
+  syntax-theme = Catppuccin Latte
+[delta "dark-mode"]
+  light = false
+  syntax-theme = Catppuccin Mocha
+[interactive]
+  diffFilter = delta --color-only
+[init]
+	defaultBranch = main
+[github]
+	user = ubmit
+[pull]
+	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

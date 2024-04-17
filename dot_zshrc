@@ -1,0 +1,73 @@
+# load zgenom
+source "${HOME}/.zgenom/zgenom.zsh"
+
+# Check for plugin and zgenom updates every 7 days
+# This does not increase the startup time.
+zgenom autoupdate
+
+# if the init script doesn't exist
+if ! zgenom saved; then
+	echo "Creating a zgenom save"
+
+	# Ohmyzsh base library
+	zgenom ohmyzsh
+
+	# plugins
+	zgenom ohmyzsh plugins/git
+	zgenom load zsh-users/zsh-completions
+	zgenom load zsh-users/zsh-autosuggestions
+	zgenom load zdharma-continuum/fast-syntax-highlighting
+	zgenom load djui/alias-tips
+
+	# save all to init script
+	zgenom save
+fi
+
+# set env variables
+export PNPM_HOME="$HOME/Library/pnpm"
+export BUN_INSTALL="$HOME/.bun"
+export HOMEBREW_NO_INSTALL_FROM_API=1
+
+# add to path
+path+=('/opt/homebrew/bin')
+path+=('/opt/homebrew/sbin')
+path+=("${HOME}/.local/bin")
+path+=($PNPM_HOME)
+path+=("$BUN_INSTALL/bin")
+export PATH
+
+# pure prompt setup
+# fpath+=("$(brew --prefix)/share/zsh/site-functions")
+# autoload -U promptinit
+# promptinit
+# prompt pure
+
+# aliases
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias rm=trash
+alias ls=eza
+alias la='eza -lah'
+alias vim=nvim
+alias pn=pnpm
+alias pnx='pnpm dlx'
+alias fly=flyctl
+alias lg=lazygit
+
+# functions
+function cat {
+	local theme
+	theme=$(defaults read -globalDomain AppleInterfaceStyle &>/dev/null && echo 'Catppuccin Mocha' || echo 'Catppuccin Latte')
+	bat --theme="$theme" "$@"
+}
+
+# load fnm
+eval "$(fnm env --use-on-cd)"
+
+# load zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
+# load starship
+eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/Users/guilherme/.bun/_bun" ] && source "/Users/guilherme/.bun/_bun"
