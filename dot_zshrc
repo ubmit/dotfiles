@@ -39,8 +39,7 @@ export PATH
 # aliases
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias rm=trash
-alias ls=eza
-alias la='eza -lah'
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias vim=nvim
 alias pn=pnpm
 alias pnx='pnpm dlx'
