@@ -36,6 +36,10 @@ path+=($PNPM_HOME)
 path+=("$BUN_INSTALL/bin")
 export PATH
 
+function bat_theme {
+	echo $(defaults read -globalDomain AppleInterfaceStyle &>/dev/null && echo 'Catppuccin Mocha' || echo 'Catppuccin Latte')
+}
+
 # aliases
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias rm=trash
@@ -45,13 +49,7 @@ alias pn=pnpm
 alias pnx='pnpm dlx'
 alias fly=flyctl
 alias lg=lazygit
-
-# functions
-function cat {
-	local theme
-	theme=$(defaults read -globalDomain AppleInterfaceStyle &>/dev/null && echo 'Catppuccin Mocha' || echo 'Catppuccin Latte')
-	bat --theme="$theme" "$@"
-}
+alias cat='bat --theme"$(bat_theme)"'
 
 # load fnm
 eval "$(fnm env --use-on-cd)"
